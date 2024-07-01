@@ -3,6 +3,8 @@ package com.zhy.usercenterbackend.service;
 import com.zhy.usercenterbackend.model.dto.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
 * @author zenghaoyuan
 * @description 针对表【user(用户)】的数据库操作Service
@@ -19,5 +21,13 @@ public interface UserService extends IService<User> {
      * @return
      */
     long userRegister(String userAccount, String userPassword, String checkPassword);
+
+    /**
+     * 用户登陆
+     * @param userAccount
+     * @param userPassword
+     * @return  返回脱敏后的用户信息
+     */
+    User userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
 }
